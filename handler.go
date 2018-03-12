@@ -12,7 +12,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	valid, _ := mailgun.VerifyMessage(mailGunAPIKey, r)
 
 	if !valid {
-		fmt.Printf("Could not verify message from MailGun\n")
+		// don't log this as it's not useful and can be abused
 		return
 	}
 
