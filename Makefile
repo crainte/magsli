@@ -15,5 +15,9 @@ macos:
 linux:
 	CGO_ENABLED=0 GOOS=linux go build -ldflags $(LD_FLAGS) -a -installsuffix cgo -o $(BIN_DIR)/linux/$(TARGET)
 
+fmt:
+	@echo " >> Fixing code with gofmt"
+	gofmt -w -s .
+
 clean:
 	rm -rf $(BIN_DIR)

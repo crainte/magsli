@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"./mailgun"
-	"./slack"
+	"github.com/crainte/magsli/mailgun"
+	"github.com/crainte/magsli/slack"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -13,6 +13,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	if !valid {
 		// don't log this as it's not useful and can be abused
+		fmt.Println("ERROR: Invalid message")
 		return
 	}
 
